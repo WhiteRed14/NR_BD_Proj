@@ -9,14 +9,13 @@ Baza - hostowanie z pomocą mongoDB w ich chmurze
 
 4 kolekcje:
 
-    Użytkownicy (id, login, hasło, biblioteka gier[Gry.id])
+    Użytkownicy
 
-    Gry (id, nazwa, cena, tagi[], opis?)
+    Gry
 
-    Twórcy (id, nazwa, wydane gry[Gry.id])
+    Twórcy
 
-    Transakcje (id, kupujący( Użytkownicy.id ), data, gry [(Gry.id)])
-
+    Transakcje
 
 
 API:
@@ -29,10 +28,38 @@ API:
 
     Models
         schematy na wszystkie typy elementów przyjmowanych do kolekcji:
-            Użytkownicy (id, login, hasło, biblioteka gier[Gry.id])
-            Gry (id, nazwa, cena, opis, tagi[])
-            Twórcy (id, nazwa, wydane gry[Gry.id])
-            Transakcje (id, kupujący(Użytkownicy.id), data?, gry[Gry.id])
+            
+            Użytkownicy (
+                id, 
+                login, 
+                hasło, 
+                biblioteka gier[Gry.id]
+            )
+            
+            Gry (
+                id, 
+                nazwa, 
+                cena, 
+                dodatkowe dane{
+                    Opis, 
+                    Data wydania, 
+                    tagi[], 
+                    /zdjęcie(url)?/
+                }
+            )
+
+            Twórcy (
+                id, 
+                nazwa, 
+                wydane gry[Gry.id]
+            )
+
+            Transakcje (
+                id, 
+                kupujący(Użytkownicy.id), 
+                data, 
+                gry[Gry.id]
+            )
 
     Routes
         obsługa wszystkich operacji CRUD    
