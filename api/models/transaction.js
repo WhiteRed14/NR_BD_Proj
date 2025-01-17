@@ -1,10 +1,11 @@
 const mongoose = require("mongoose")
 
-//schemat developera
-const developerSchema = mongoose.Schema({
+//schemat transakcji
+const transactionSchema = mongoose.Schema({
     _id: mongoose.Types.ObjectId,
-    name: {type: String, required: true},
-    games: [{type: monguse.Schema.Types.ObjectId, ref: "Game"}]
-})
+    games: [{type: mongoose.Schema.Types.ObjectId, ref: "Game"}],
+    user: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
+    price: {type: Number, required: true}
+});
 
-module.exports = mongoose.model("Developer", productSchema)
+module.exports = mongoose.model("Transaction", transactionSchema)
