@@ -41,7 +41,7 @@ API:
             sumaryczna wartość biblioteki użytkownika
             wszystkie gry danego wydawcy/twórcy
             ile wydawca/twórca zarobił z gier (możliwość wybrania okresu?)
-            wyświetlenie gier po popularności (ilości użytkowników posiadających ją)
+            wyświetlenie gier w zależności od wybranych parametrów (popularność, cena, data wydania, twórca, tagi)
             coś jeszcze?
         
 
