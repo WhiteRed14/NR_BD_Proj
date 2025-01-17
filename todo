@@ -1,2 +1,48 @@
-just a todo
-test 1 2 3 
+
+todo
+
+Projekt: Prosty sklep internetowy z grami
+
+Baza - hostowanie z pomocą mongoDB w ich chmurze
+
+4 kolekcje:
+
+    Użytkownicy (id, login, hasło, biblioteka gier[])
+
+    Gry (id, nazwa, cena, twórca(id), tagi[] (opcjonalnie jeszcze opis/data wydania?))
+
+    Twórcy (id, nazwa)
+
+    Transakcje (id, kupujący( Użytkownicy.id ), wydawca( Twórcy.id ), data, gra (Gry.id))
+
+API:
+
+    Controllers
+        funkcje wewnątrz endpointów
+
+    Middleware
+        Autoryzacja
+
+    Models
+        schematy na wszystkie typy elementów przyjmowanych do kolekcji:
+            Użytkownicy
+            Gry
+            Twórcy
+            Transakcje
+
+    Routes
+        obsługa wszystkich operacji CRUD
+        Kilka endpointów?
+
+Potrzebne biblioteki/frameworki:
+
+    Express
+
+    Mongoose
+
+    body-parser
+
+    morgan?
+    bcrypt?
+    jsonwebtoken?
+
