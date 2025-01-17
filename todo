@@ -18,7 +18,7 @@ Baza - hostowanie z pomocą mongoDB w ich chmurze
 API:
 
     Controllers
-        funkcje wewnątrz endpointów
+        funkcje wewnątrz endpointów (tylko dla gier i użytkowników?)
 
     Middleware
         Autoryzacja
@@ -31,12 +31,21 @@ API:
             Transakcje
 
     Routes
-        obsługa wszystkich operacji CRUD
+        obsługa wszystkich operacji CRUD    
         Kilka endpointów?
+        wyświetlanie danych z kilku kolekcji na raz np:
+            sumaryczna wartość biblioteki użytkownika
+            wszystkie gry danego wydawcy/twórcy
+            ile wydawca/twórca zarobił z gier
+            wyświetlenie gier po popularności (ilości użytkowników posiadających ją)
+            coś jeszcze?
+        
 
 Potrzebne biblioteki/frameworki:
 
     Express
+
+    Dotenv
 
     Mongoose
 
@@ -46,3 +55,7 @@ Potrzebne biblioteki/frameworki:
     bcrypt?
     jsonwebtoken?
 
+----
+
+opcjonalnie:
+    Klient?
