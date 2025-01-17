@@ -70,7 +70,19 @@ API:
             ile wydawca/twórca zarobił z gier (możliwość wybrania okresu?)
             wyświetlenie gier w zależności od wybranych parametrów (popularność, cena, data wydania, twórca, tagi)
             coś jeszcze?
-        
+
+
+Dotenv dane:
+    DB_USER
+    DB_PASSWORD
+    DB_NAME
+    JWT_KEY
+
+app.js
+
+server.js
+
+
 
 Potrzebne biblioteki/frameworki:
 
