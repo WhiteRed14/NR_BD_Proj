@@ -4,10 +4,13 @@ const mongoose = require("mongoose")
 const gameSchema = mongoose.Schema({
     _id: mongoose.Types.ObjectId,
     name: {type: String, required: true},
-    developer: {type: String, required: true},
     price: {type: Number, required: true},
-    description: String,
-    tags: {type:[String], default: []}
+    additionalData: {
+        description: {type: String, default: " "},
+        releaseDate: {type: Date, required: true},
+        tags: {type: [String], default: []},
+        images: String
+    }
 });
 
 module.exports = mongoose.model("Game", gameSchema)
