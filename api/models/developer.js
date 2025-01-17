@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const developerSchema = mongoose.Schema({
     _id: mongoose.Types.ObjectId,
     name: {type: String, required: true},
-    games: [{type: monguse.Schema.Types.ObjectId, ref: "Game"}]
-})
+    games: [{type: mongoose.Schema.Types.ObjectId, ref: "Game"}]
+});
 
 module.exports = mongoose.model("Developer", developerSchema)
