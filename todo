@@ -45,6 +45,8 @@ Potrzebne biblioteki/frameworki:
 
     Express
 
+    Dotenv
+
     Mongoose
 
     body-parser
