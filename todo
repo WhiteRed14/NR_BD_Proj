@@ -1,34 +1,38 @@
 
-todo
+Podstawowe założenia:
 
 Projekt: Prosty sklep internetowy z grami
 
 Baza - hostowanie z pomocą mongoDB w ich chmurze
 
+
+
 4 kolekcje:
 
-    Użytkownicy (id, login, hasło, biblioteka gier[])
+    Użytkownicy (id, login, hasło, biblioteka gier[Gry.id])
 
-    Gry (id, nazwa, cena, twórca(id), tagi[] (opcjonalnie jeszcze opis/data wydania?))
+    Gry (id, nazwa, cena, tagi[], opis?)
 
-    Twórcy (id, nazwa)
+    Twórcy (id, nazwa, wydane gry[Gry.id])
 
-    Transakcje (id, kupujący( Użytkownicy.id ), wydawca( Twórcy.id ), data, gra (Gry.id))
+    Transakcje (id, kupujący( Użytkownicy.id ), data, gry [(Gry.id)])
+
+
 
 API:
 
     Controllers
-        funkcje wewnątrz endpointów (tylko dla gier i użytkowników?)
+        funkcje wewnątrz endpointów (tylko potrzebne dla gier i użytkowników?)
 
     Middleware
         Autoryzacja
 
     Models
         schematy na wszystkie typy elementów przyjmowanych do kolekcji:
-            Użytkownicy
-            Gry
-            Twórcy
-            Transakcje
+            Użytkownicy (id, login, hasło, biblioteka gier[Gry.id])
+            Gry (id, nazwa, cena, opis, tagi[])
+            Twórcy (id, nazwa, wydane gry[Gry.id])
+            Transakcje (id, kupujący(Użytkownicy.id), data?, gry[Gry.id])
 
     Routes
         obsługa wszystkich operacji CRUD    
@@ -36,7 +40,7 @@ API:
         wyświetlanie danych z kilku kolekcji na raz np:
             sumaryczna wartość biblioteki użytkownika
             wszystkie gry danego wydawcy/twórcy
-            ile wydawca/twórca zarobił z gier
+            ile wydawca/twórca zarobił z gier (możliwość wybrania okresu?)
             wyświetlenie gier po popularności (ilości użytkowników posiadających ją)
             coś jeszcze?
         
