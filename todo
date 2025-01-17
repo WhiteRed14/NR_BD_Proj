@@ -31,8 +31,15 @@ API:
             Transakcje
 
     Routes
-        obsługa wszystkich operacji CRUD
+        obsługa wszystkich operacji CRUD    
         Kilka endpointów?
+        wyświetlanie danych z kilku kolekcji na raz np:
+            sumaryczna wartość biblioteki użytkownika
+            wszystkie gry danego wydawcy/twórcy
+            ile wydawca/twórca zarobił z gier
+            wyświetlenie gier po popularności (ilości użytkowników posiadających ją)
+            coś jeszcze?
+        
 
 Potrzebne biblioteki/frameworki:
 
@@ -46,3 +53,7 @@ Potrzebne biblioteki/frameworki:
     bcrypt?
     jsonwebtoken?
 
+----
+
+opcjonalnie:
+    Klient?
