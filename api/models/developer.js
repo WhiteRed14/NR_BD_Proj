@@ -7,4 +7,4 @@ const developerSchema = mongoose.Schema({
     games: [{type: monguse.Schema.Types.ObjectId, ref: "Game"}]
 })
 
-module.exports = mongoose.model("Developer", productSchema)
+module.exports = mongoose.model("Developer", developerSchema)
