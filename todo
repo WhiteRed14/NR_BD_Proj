@@ -18,7 +18,7 @@ Baza - hostowanie z pomocą mongoDB w ich chmurze
 API:
 
     Controllers
-        funkcje wewnątrz endpointów
+        funkcje wewnątrz endpointów (tylko dla gier i użytkowników?)
 
     Middleware
         Autoryzacja
