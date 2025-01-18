@@ -1,4 +1,4 @@
-let token = ""; // Przechowywanie tokena JWT po logowaniu
+let token = ""; 
 
 function registerUser() {
     const login = document.getElementById("registerLogin").value;
