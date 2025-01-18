@@ -19,7 +19,7 @@ router.get("/", (req, res, next) => {
 
 //Rejestracja nowego użytkownika
 router.post("/register", (req, res, next) => {
-    User.find({ login: req.body.login })
+    User.findOne({ login: req.body.login })
     .then(existingUser =>{
         if(existingUser) {
             return res.status(409).json({ message : "Login już istnieje"});
@@ -39,10 +39,14 @@ router.post("/register", (req, res, next) => {
     .then(saveUser => {
         res.status(201).json({
             message: "Zarejsetrowane nowego użytkownika",
-            dane: savedUser
+            dane: saveUser
         });
     })
-    .catch(err => res.status(500).json({ message: err}));
+    
+    .catch(err => {
+        console.error("Błąd rejestracji:", err);
+        res.status(500).json({ message: err})
+    });
 });
 
 //Logowanie użytkownika
@@ -65,14 +69,17 @@ router.post("/login", (req,res, next) => {
         }
 
         const token = jwt.sign(
-            { userId: user._id }, 
+            { userId: loggedInUser._id }, 
             process.env.JWT_KEY, 
             { expiresIn: '1h'}
         );
         
         res.status(200).json({ message: "Zalogowano pomyślnie", token});
     })
-    .catch(err => res.status(500).json({ message: err }));
+    .catch(err => {
+        console.error("Błąd logowania", err);
+        res.status(500).json({ message: err });
+    });
 });
 
 //Pobranie użytkownika po ID

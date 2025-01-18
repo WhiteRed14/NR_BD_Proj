@@ -5,8 +5,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
-const app = express()
+const app = express();
+
+app.use(cors());
 
 //Połączenie z bazą
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@gamestorecluster.p673c.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=GameStoreCluster`)

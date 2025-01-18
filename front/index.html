@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep z grami - Test API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Rejestracja użytkownika</h2>
+    <input type="text" id="registerLogin" placeholder="Login">
+    <input type="password" id="registerPassword" placeholder="Hasło">
+    <button onclick="registerUser()">Zarejestruj</button>
+
+    <h2>Logowanie użytkownika</h2>
+    <input type="text" id="loginLogin" placeholder="Login">
+    <input type="password" id="loginPassword" placeholder="Hasło">
+    <button onclick="loginUser()">Zaloguj</button>
+
+    <h2>Dodawanie gry</h2>
+    <input type="text" id="gameName" placeholder="Nazwa gry">
+    <input type="number" id="gamePrice" placeholder="Cena">
+    <input type="text" id="gameTags" placeholder="Tagi (oddzielone przecinkami)">
+    <button onclick="addGame()">Dodaj grę</button>
+
+    <h2>Lista gier</h2>
+    <button onclick="fetchGames()">Pobierz gry</button>
+
+    <h2>Wynik</h2>
+    <pre id="response"></pre>
+
+    <script src="script.js"></script>
+</body>
+</html>
