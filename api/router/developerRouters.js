@@ -56,7 +56,7 @@ router.get("/:developerId", (req, res, next) => {
 //Aktualizowanie
 router.put("/:developerId", (req, res, next) => {
     const id = req.body.developerId;
-    Developer.update({ _id: id}, {$set: req.body})
+    Developer.updateOne({ _id: id}, {$set: req.body})
     .then(() => {
         res.status(200).json({ message: "Zaktualizowano twórce z ID:" + id});
     })
@@ -66,7 +66,7 @@ router.put("/:developerId", (req, res, next) => {
 //Usuwanie
 router.delete("/:developerId", (req, res, next) => {
     const id = req.body.developerId;
-    Developer.delete({ _id: id})
+    Developer.deleteOne({ _id: id})
     .then(() => {
         res.status(200).json({ message: "Usunieto twórce z ID:" + id});
     })

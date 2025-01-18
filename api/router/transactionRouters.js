@@ -56,7 +56,7 @@ router.get("/:transactionId", (req, res, next) => {
 //Aktualizowanie
 router.put("/:transactionrId", (req, res, next) => {
     const id = req.body.transactionId;
-    Transaction.update({ _id: id}, {$set: req.body})
+    Transaction.updateOne({ _id: id}, {$set: req.body})
     .then(() => {
         res.status(200).json({ message: "Zaktualizowano transakcje z ID:" + id});
     })
@@ -66,7 +66,7 @@ router.put("/:transactionrId", (req, res, next) => {
 //Usuwanie
 router.delete("/:transactionId", (req, res, next) => {
     const id = req.body.transactionId;
-    Transaction.delete({ _id: id})
+    Transaction.deleteOne({ _id: id})
     .then(() => {
         res.status(200).json({ message: "Usunieto transakcje z ID:" + id});
     })

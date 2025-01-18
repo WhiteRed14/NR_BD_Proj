@@ -54,7 +54,7 @@ router.get("/:gameId", (req, res, next) => {
 
 router.put("/:gameId", (req, res, next) => {
     const id = req.params.gameId;
-    Game.update({ _id: id }, {$set: req.body})
+    Game.updateOne({ _id: id }, {$set: req.body})
     .then(() => {
         res.status(200).json({ message: "Zaktualizowano gre z ID:" + id});
     })
@@ -64,7 +64,7 @@ router.put("/:gameId", (req, res, next) => {
 //Usuniecie gry
 router.delete("/:gameId", (req, res, next) =>{
     const id = req.params.gameId;
-    Game.delete({ _id: id})
+    Game.deleteOne({ _id: id})
     .then(() => {
         res.status(200).json({message: "Usunięto gre z ID:" + id});
     })
