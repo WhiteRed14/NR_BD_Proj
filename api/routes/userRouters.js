@@ -18,7 +18,7 @@ router.get("/", (req, res, next) => {
 });
 
 //Rejestracja nowego użytkownika
-route.post("/register", (req, res, next) => {
+router.post("/register", (req, res, next) => {
     User.find({ login: req.body.login })
     .then(existingUser =>{
         if(existingUser) {

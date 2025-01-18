@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Game = require("../models/game");
+const checkAuth = require("../middleware/checkAuth");
 
 //pobieranie wszystkich gier
 router.get("/", (req, res, next) => {
@@ -17,7 +18,7 @@ router.get("/", (req, res, next) => {
 
 //Dodawanie nowej gry
 
-router.post("/", (req, res, next) =>{
+router.post("/", checkAuth, (req, res, next) =>{
     const game = new Game({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
