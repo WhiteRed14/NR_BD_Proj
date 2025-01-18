@@ -125,7 +125,7 @@ router.put("/:userId", (req, res, next)=> {
 
 //Usuwanie użytkownika
 router.delete("/:userId", (req, res, next) => {
-    const id = req.body.userId;
+    const id = req.params.userId;
     User.deleteOne({ _id: id})
     .then(() => {
         res.status(200).json({ message: "Usunięto użytkownika z ID:" + id });
