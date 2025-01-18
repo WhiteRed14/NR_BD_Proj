@@ -88,3 +88,42 @@ router.get("/:userId", (req, res, next) => {
     })
     .catch(err => res.status(500).json({ message: err }));
 });
+
+//Aktualizacja użytkowanika 
+
+router.put("/:userId", (req, res, next)=> {
+    const id = req.body.userId;
+    
+    let updateData = req.body;
+
+    if(req.body.password) {
+        bcrypt.hash(req.body.password, 10)
+        .then(hashedPassword => {
+            updateData.password = hashedPassword;
+            return User.updateOne({ _id: id}, {$set: updateData});
+        })
+        .then(() =>{
+            res.status(200).json({message: "Zaktualizowano użytkownika z ID:" + id});
+        })
+        .catch(err => res.status(500).json({ message: err }));
+    }
+    else {
+        User.updateOne({ _id: id }, { $set: updateData })
+        .then(() => {
+            res.status(200).json({ message: "Zaktualizowano użytkownika o ID " + id });
+        })
+        .catch(err => res.status(500).json({ message: err }));
+    }
+});
+
+//Usuwanie użytkownika
+router.delete("/:userId", (req, res, next) => {
+    const id = req.body.userId;
+    User.deleteOne({ _id: id})
+    .then(() => {
+        res.status(200).json({ message: "Usunięto użytkownika z ID:" + id });
+    })
+    .catch(err => res.status(500).json({ message: err }));
+});
+
+module.exports = router;
