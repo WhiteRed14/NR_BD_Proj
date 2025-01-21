@@ -13,7 +13,7 @@ router.get("/", (req, res, next) => {
     .then(users => {
         res.status(200).json({
             message: "Lista wszystkich użytkowników",
-            lista: users
+            lista: users 
         });
     })
     .catch(err => res.status(500).json({ message: err}));
@@ -101,7 +101,7 @@ router.get("/:userId", (req, res, next) => {
 //Aktualizacja użytkowanika 
 
 router.put("/:userId", (req, res, next)=> {
-    const id = req.body.userId;
+    const id = req.params.userId;
     
     let updateData = req.body;
 
