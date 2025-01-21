@@ -35,7 +35,7 @@ exports.developer_add_new = (req, res, next) => {
 
 //Pobieranie po ID 
 exports.developer_get_by_id = (req, res, next) => {
-    const id = req.body.developerId;
+    const id = req.params.developerId;
     Developer.findById(id).populate("games")
     .then(developer => {
         if(developer){

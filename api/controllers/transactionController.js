@@ -37,7 +37,7 @@ exports.transaction_add_new = (req, res, next) => {
 
 //Pobieranie po ID 
 exports.transaction_get_by_id = (req, res, next) => {
-    const id = req.body.transactionId;
+    const id = req.params.transactionId;
     Transaction.findById(id).populate("user games")
     .then(transaction => {
         if(transaction){
@@ -63,7 +63,7 @@ exports.transaction_update = (req, res, next) => {
 
 //Usuwanie
 exports.transaction_delete = (req, res, next) => {
-    const id = req.body.transactionId;
+    const id = req.params.transactionId;
     Transaction.findOneAndDelete(id)
     .then(result => {
         res.status(200).json({wiadomość: "Usunięcie transakcji" + id})
