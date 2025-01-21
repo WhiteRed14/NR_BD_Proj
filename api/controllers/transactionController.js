@@ -32,7 +32,7 @@ exports.transaction_add_new = (req, res, next) => {
             dane: result
         });
     })
-    then(() => {
+    .then(() => {
         User.updateOne({ _id: transaction.user }, { $push: { library: { $each: transaction.games } } })
         .then(() => {res.status(200).json({ message: "Dodano gry do biblioteki użytkownika o ID " + id })})
     })
