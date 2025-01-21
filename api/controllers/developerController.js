@@ -50,7 +50,7 @@ exports.developer_get_by_id = (req, res, next) => {
 
 //Aktualizowanie
 exports.developer_update = (req, res, next) => {
-    const id = req.body.developerId;
+    const id = req.params.developerId;
     Developer.updateOne({ _id: id}, {$set: req.body})
     .then(() => {
         res.status(200).json({ message: "Zaktualizowano twórce z ID:" + id});

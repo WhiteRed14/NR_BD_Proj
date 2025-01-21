@@ -53,7 +53,7 @@ exports.transaction_get_by_id = (req, res, next) => {
 
 //Aktualizowanie
 exports.transaction_update = (req, res, next) => {
-    const id = req.body.transactionId;
+    const id = req.params.transactionId;
     Transaction.updateOne({ _id: id}, {$set: req.body})
     .then(() => {
         res.status(200).json({ message: "Zaktualizowano transakcje z ID:" + id});
