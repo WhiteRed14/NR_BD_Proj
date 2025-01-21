@@ -1,4 +1,4 @@
-let token = ""; 
+let token = "";
 
 function registerUser() {
     const login = document.getElementById("registerLogin").value;
@@ -28,7 +28,7 @@ function loginUser() {
         document.getElementById("response").innerText = JSON.stringify(data, null, 2);
         if (data.token) {
             token = data.token;
-            alert("Zalogowano! Token zapisany.");
+            alert(`Zalogowano ${login}! Token zapisany.`);
         }
     })
     .catch(error => console.error("Błąd:", error));
@@ -55,33 +55,54 @@ function addGame() {
 function fetchGames() {
     fetch("http://localhost:3000/games")
     .then(response => response.text())
-    .then(data => displayResults(data))
+    .then(data => displayGames(JSON.parse(data)))
     .catch(error => console.error("Błąd:", error));
 }
 
 //Wyświetlenie wyników
-function displayResults(data) {
+function displayGames(data) {
     const resultsSection = document.getElementById("response");
     resultsSection.innerHTML = ""; // Zeruje poprzednie wyniki
-    
+    //console.log(data)
     if (data.length === 0) {
         resultsSection.innerHTML = "<p>Nie znaleziono gier dla podanych kryteriów.</p>";
         return;
     }
     
-    data.forEach(game => {
+    data.lista.forEach(game => {
         const gameElement = document.createElement("div");
         gameElement.className = "result-card";
         gameElement.innerHTML = `
         <h3>${game.name}</h3>
         <h4>${game.price}</h4>
         <div>
-            <div>${game.additionalData.tags}</div>
+            <div>Tagi: ${game.additionalData.tags}</div>
             <div>Data wydania: ${game.additionalData.releaseDate.toString().slice(0,10)}</div>
             <div>Opis: ${game.additionalData.description}</div>
             <img src="${game.additionalData.images}" alt="${game.name}" class="element-image">
         </div>
+        <button class="buy-btn" onclick="buyGame('${game._id}')" data-id="">Kup</button>
         `;
         resultsSection.appendChild(gameElement);
     });
+}
+
+function buyGame(gameId) {
+    fetch("http://localhost:3000/transactions/", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({
+            game: gameId,
+            token: token
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("response").innerText = JSON.stringify(data, null, 2);
+        
+    })
+    .catch(error => console.error("Błąd:", error));
 }

@@ -62,7 +62,7 @@ exports.user_log_in = (req, res, next) => {
             return res.status(401).json({ message: "Nieprawidłowe dane logowania"});
         }
         const token = jwt.sign(
-            { userId: loggedInUser._id }, 
+            { userId: loggedInUser._id },
             process.env.JWT_KEY, 
             { expiresIn: '1h'}
         );
