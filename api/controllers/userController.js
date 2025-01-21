@@ -88,7 +88,6 @@ exports.user_get_by_id = (req, res, next) => {
     .catch(err => res.status(500).json({ message: err }));
 };
 
-
 //Aktualizowanie
 exports.user_update = (req, res, next) => {
     const id = req.params.userId;
