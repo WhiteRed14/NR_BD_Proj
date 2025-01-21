@@ -8,13 +8,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
-
 app.use(cors());
 
 //Połączenie z bazą
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@gamestorecluster.p673c.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=GameStoreCluster`)
-.then(() => console.log("Połączono z bazą MongoDB"))
-.catch(err => console.log("Błąd połączenia z MongoDB:", err));
+.then(() => console.log("Połączono z bazą"))
+.catch(err => console.log("Błąd połączenia z bazą", err));
 
 //Middleware
 app.use(morgan("dev")); // Logger zapytań
