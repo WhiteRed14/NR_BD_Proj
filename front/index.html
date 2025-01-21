@@ -7,29 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="login_register">
+        <div id="register">
+                
+            <h3>Rejestracja użytkownika</h3>
+            <input type="text" id="registerLogin" placeholder="Login">
+            <input type="password" id="registerPassword" placeholder="Hasło">
+            <button onclick="registerUser()">Zarejestruj</button>
 
-    <h2>Rejestracja użytkownika</h2>
-    <input type="text" id="registerLogin" placeholder="Login">
-    <input type="password" id="registerPassword" placeholder="Hasło">
-    <button onclick="registerUser()">Zarejestruj</button>
+        </div>
+        <div id="login">
+                
+            <h3>Logowanie użytkownika</h3>
+            <input type="text" id="loginLogin" placeholder="Login">
+            <input type="password" id="loginPassword" placeholder="Hasło">
+            <button onclick="loginUser()">Zaloguj</button>
 
-    <h2>Logowanie użytkownika</h2>
-    <input type="text" id="loginLogin" placeholder="Login">
-    <input type="password" id="loginPassword" placeholder="Hasło">
-    <button onclick="loginUser()">Zaloguj</button>
+        </div>
+    </div>
 
-    <h2>Dodawanie gry</h2>
-    <input type="text" id="gameName" placeholder="Nazwa gry">
-    <input type="number" id="gamePrice" placeholder="Cena">
-    <input type="text" id="gameTags" placeholder="Tagi (oddzielone przecinkami)">
-    <button onclick="addGame()">Dodaj grę</button>
-
-    <h2>Lista gier</h2>
-    <button onclick="fetchGames()">Pobierz gry</button>
-
-    <h2>Wynik</h2>
-    <pre id="response"></pre>
-
-    <script src="script.js"></script>
+    <div id="main">
+        <h2>Dodawanie gry</h2>
+        <input type="text" id="gameName" placeholder="Nazwa gry">
+        <input type="number" id="gamePrice" placeholder="Cena">
+        <input type="text" id="gameTags" placeholder="Tagi (oddzielone przecinkami)">
+        <button onclick="addGame()">Dodaj grę</button>
+    
+        <h2>Lista gier</h2>
+        <button onclick="fetchGames()">Pobierz gry</button>
+    
+        <h2>Wynik</h2>
+        <pre id="response"></pre>
+    
+        <script src="script.js"></script>
+    </div>
 </body>
 </html>
