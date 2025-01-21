@@ -8,10 +8,10 @@ router.get("/", TransactinController.transaction_get_all);
 
 router.post("/", checkAuth, TransactinController.transaction_add_new);
 
-router.get("/", TransactinController.transaction_get_by_id);
+router.get("/transactionId", TransactinController.transaction_get_by_id);
 
-router.put("/", TransactinController.transaction_update);
+router.put("/transactionId", TransactinController.transaction_update);
 
-router.delete("/", TransactinController.transaction_delete);
+router.delete("/transactionId", TransactinController.transaction_delete);
 
 module.exports = router;

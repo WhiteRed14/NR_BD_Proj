@@ -9,10 +9,10 @@ router.get("/", GameController.games_get_all);
 
 router.post("/", checkAuth, GameController.games_add_new);
 
-router.get("/", GameController.games_get_by_id);
+router.get("/:gameId", GameController.games_get_by_id);
 
-router.put("/", GameController.games_update);
+router.put("/:gameId", GameController.games_update);
 
-router.delete("/", GameController.games_delete);
+router.delete("/:gameId", GameController.games_delete);
 
 module.exports = router;
