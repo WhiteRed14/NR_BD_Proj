@@ -55,6 +55,33 @@ function addGame() {
 function fetchGames() {
     fetch("http://localhost:3000/games")
     .then(response => response.text())
-    .then(data => document.getElementById("response").innerText = data)
+    .then(data => displayResults(data))
     .catch(error => console.error("Błąd:", error));
+}
+
+//Wyświetlenie wyników
+function displayResults(data) {
+    const resultsSection = document.getElementById("response");
+    resultsSection.innerHTML = ""; // Zeruje poprzednie wyniki
+    
+    if (data.length === 0) {
+        resultsSection.innerHTML = "<p>Nie znaleziono gier dla podanych kryteriów.</p>";
+        return;
+    }
+    
+    data.forEach(game => {
+        const gameElement = document.createElement("div");
+        gameElement.className = "result-card";
+        gameElement.innerHTML = `
+        <h3>${game.name}</h3>
+        <h4>${game.price}</h4>
+        <div>
+            <div>${game.additionalData.tags}</div>
+            <div>Data wydania: ${game.additionalData.releaseDate.toString().slice(0,10)}</div>
+            <div>Opis: ${game.additionalData.description}</div>
+            <img src="${game.additionalData.images}" alt="${game.name}" class="element-image">
+        </div>
+        `;
+        resultsSection.appendChild(gameElement);
+    });
 }
