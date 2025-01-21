@@ -64,10 +64,8 @@ exports.transaction_update = (req, res, next) => {
 //Usuwanie
 exports.transaction_delete = (req, res, next) => {
     const id = req.body.transactionId;
-    Transaction.deleteOne({ _id: id})
-    .then(() => {
-        res.status(200).json({ message: "Usunieto transakcje z ID:" + id});
+    Transaction.findOneAndDelete(id)
+    .then(result => {
+        res.status(200).json({wiadomość: "Usunięcie transakcji" + id})
     })
-    .catch(err => res.status(500).json({ message: err}));
 };
-

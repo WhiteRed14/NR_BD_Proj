@@ -71,7 +71,8 @@ exports.games_update = (req, res, next) => {
 
 exports.games_delete = (req, res, next) => {
     const id = req.params.gameId
-    Game.findOneAndDelete(id).then(result => {
+    Game.findOneAndDelete(id)
+    .then(result => {
         res.status(200).json({wiadomość: "Usunięcie gry o id " + id})
     })
 }

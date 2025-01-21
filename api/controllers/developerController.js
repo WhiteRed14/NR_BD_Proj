@@ -60,10 +60,9 @@ exports.developer_update = (req, res, next) => {
 
 //Usuwanie
 exports.developer_delete =  (req, res, next) => {
-    const id = req.body.developerId;
-    Developer.deleteOne({ _id: id})
-    .then(() => {
-        res.status(200).json({ message: "Usunieto twórce z ID:" + id});
+    const id = req.params.developerId;
+    Developer.findOneAndDelete(id)
+    .then(result => {
+        res.status(200).json({wiadomość: "Usunięcie developera o id " + id})
     })
-    .catch(err => res.status(500).json({ message: err}));
 };
