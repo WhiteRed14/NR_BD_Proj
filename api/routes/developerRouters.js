@@ -4,7 +4,7 @@ const router = express.Router();
 const checkAuth = require("../middleware/checkAuth");
 
 //iimportowanie controllers
-const DeveloperController = require("../controllers/developerControllers");
+const DeveloperController = require("../controllers/developerController");
 
 router.get("/", DeveloperController.developer_get_all);
 
