@@ -1,8 +1,8 @@
+//import
 const mongoose = require("mongoose");
 const Transaction = require("../models/transaction");
 
 //Pobieranie
-
 exports.transaction_get_all = (req, res, next) => {
     Transaction.find().populate("user games")
     .then(transaction => {
@@ -15,7 +15,6 @@ exports.transaction_get_all = (req, res, next) => {
 };
 
 //Dodawanie
-
 exports.transaction_add_new = (req, res, next) => {
     const transaction = new Transaction({
         _id: new mongoose.Types.ObjectId(),

@@ -1,8 +1,8 @@
+//import
 const mongoose = require("mongoose");
 const Developer = require("../models/developer");
 
 //Pobieranie
-
 exports.developer_get_all = (req, res, next) => {
     Developer.find().populate("games")
     .then(developers => {
@@ -15,7 +15,6 @@ exports.developer_get_all = (req, res, next) => {
 };
 
 //Dodawanie
-
 exports.developer_add_new = (req, res, next) => {
     const developer = new Developer({
         _id: new mongoose.Types.ObjectId(),

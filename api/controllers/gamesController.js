@@ -2,6 +2,7 @@
 const mongoose = require("mongoose")
 const Game = require("../models/game")
 
+//Pobranie
 exports.games_get_all = (req, res, next) => {
     Game.find().then(games => {
         res.status(200).json({
@@ -16,6 +17,7 @@ exports.games_get_all = (req, res, next) => {
     })
 }
 
+//Dodanie
 exports.games_add_new = (req, res, next) => {
     const game = new Game({
         _id: new mongoose.Types.ObjectId(),
@@ -43,6 +45,7 @@ exports.games_add_new = (req, res, next) => {
     })
 }
 
+//Pobranie po id
 exports.games_get_by_id = (req, res, next) => {
     const id = req.params.gameId
     Game.findById(id).then(result => {
@@ -52,6 +55,8 @@ exports.games_get_by_id = (req, res, next) => {
         })
     })
 }
+
+//Aktualizacja
 exports.games_update = (req, res, next) => {
     const id = req.params.gameId
     Game.findByIdAndUpdate(id, {
@@ -69,6 +74,7 @@ exports.games_update = (req, res, next) => {
     })
 }
 
+//Usunięcie
 exports.games_delete = (req, res, next) => {
     const id = req.params.gameId
     Game.findOneAndDelete(id)
