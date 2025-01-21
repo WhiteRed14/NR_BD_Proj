@@ -1,6 +1,8 @@
 //import
 const mongoose = require("mongoose")
 const User = require("../models/user");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 //Pobieranie
 exports.user_get_all = (req, res, next) => {
@@ -18,9 +20,8 @@ exports.user_get_all = (req, res, next) => {
     .catch(err => res.status(500).json({ message: err}));
 };
 
-//Dodawanie
-
-exports.user_add_new = (req, res, next) => {
+//Rejestracja
+exports.user_register = (req, res, next) => {
 
     User.findOne({ login: req.body.login })
 
@@ -157,6 +158,6 @@ exports.user_delete = (req, res, next) => {
     User.deleteOne({ _id: id})
 
     .then(() => {res.status(200).json({ message: "Usunięto użytkownika z ID:" + id })})
-    
+
     .catch(err => res.status(500).json({ message: err }));
 };
