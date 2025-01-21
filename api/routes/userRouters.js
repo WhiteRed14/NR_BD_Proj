@@ -1,6 +1,7 @@
 //import
 const express = require("express");
 const router = express.Router();
+const checkAuth = require("../middleware/checkAuth");
 const UserController = require("../controllers/userController");
 
 //Pobieranie wszystkich użytkowników
