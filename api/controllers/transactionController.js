@@ -49,7 +49,6 @@ exports.transaction_get_by_id = (req, res, next) => {
     .catch(err => res.status(500).json({ message: err}));
 };
 
-
 //Aktualizowanie
 exports.transaction_update = (req, res, next) => {
     const id = req.params.transactionId;
