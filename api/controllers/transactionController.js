@@ -1,6 +1,7 @@
 //import
 const mongoose = require("mongoose");
 const Transaction = require("../models/transaction");
+const User = require("../models/user");
 
 //Pobieranie
 exports.transaction_get_all = (req, res, next) => {
@@ -30,6 +31,10 @@ exports.transaction_add_new = (req, res, next) => {
             message: "Nowa transakcja została dodana",
             dane: result
         });
+    })
+    then(() => {
+        User.updateOne({ _id: transaction.user }, { $push: { library: { $each: transaction.games } } })
+        .then(() => {res.status(200).json({ message: "Dodano gry do biblioteki użytkownika o ID " + id })})
     })
     .catch(err => res.status(500).json({ message: err}));
 };
