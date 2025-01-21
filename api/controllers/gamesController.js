@@ -22,10 +22,10 @@ exports.games_add_new = (req, res, next) => {
         name: req.body.name,
         price: req.body.price,
         additionalData: {
-            description: req.body.desc,
-            releaseDate: req.body.releaseDate,
-            tags: req.body.tags,
-            images: req.body.img
+            description: req.body.additionalData.description,
+            releaseDate: req.body.additionalData.releaseDate,
+            tags: req.body.additionalData.tags,
+            images: req.body.additionalData.images
         }
     })
     //zapis
