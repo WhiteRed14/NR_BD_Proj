@@ -33,7 +33,7 @@ function loginUser() {
     })
     .catch(error => console.error("Błąd:", error));
 }
-
+/* commented bcuz no longer used
 function addGame() {
     const name = document.getElementById("gameName").value;
     const price = document.getElementById("gamePrice").value;
@@ -51,7 +51,7 @@ function addGame() {
     .then(data => document.getElementById("response").innerText = data)
     .catch(error => console.error("Błąd:", error));
 }
-
+*/
 function fetchGames() {
     fetch("http://localhost:3000/games")
     .then(response => response.text())

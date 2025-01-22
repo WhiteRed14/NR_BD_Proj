@@ -24,22 +24,18 @@
             <button onclick="loginUser()">Zaloguj</button>
 
         </div>
+        <div id="status">Niezalogowany</div>
     </div>
-
     <div id="main">
-        <h2>Dodawanie gry</h2>
-        <input type="text" id="gameName" placeholder="Nazwa gry">
-        <input type="number" id="gamePrice" placeholder="Cena">
-        <input type="text" id="gameTags" placeholder="Tagi (oddzielone przecinkami)">
-        <button onclick="addGame()">Dodaj grę</button>
-    
-        <h2>Lista gier</h2>
-        <button onclick="fetchGames()">Pobierz gry</button>
-    
+        <div id="gameSearch" class="mainContent">
+            <h2>Lista gier</h2>
+            <button onclick="fetchGames()">Pobierz gry</button>
+        </div>
+        <script src="script.js"></script>
+    </div>
+    <div id="result">
         <h2>Wynik</h2>
         <pre id="response"></pre>
-    
-        <script src="script.js"></script>
     </div>
 </body>
 </html>
